@@ -58,6 +58,94 @@ Create a new user account
 * Highlight password or username input box with red and tell that input is invalid
 * Highlight username input box and tell that username is already in use
 
+# Log-in:
+
+Logs a user into their account.
+
+## Actors
+
+1. User
+
+## Preconditions
+
+* User’s account should exist already.
+
+## Triggers
+
+Click Log-in button
+## Primary Sequence
+
+1. User inputs username
+2. User inputs password
+3. User clicks Log-in
+
+## Primary Postconditions
+
+* Users are logged in and can access their resources.
+
+## Alternate Sequences
+1. User inputted an invalid username or password.
+2. Prompt the user to enter the username and password again.
+
+# Log-out
+
+Logs a user out of their account.
+
+## Actors
+
+1. User
+
+## Preconditions
+
+* User’s account should be logged in.
+
+## Triggers
+
+* Click Log-out button
+
+## Primary Sequence
+
+1. Users click the log-out button when they are logged in.
+
+## Primary Postconditions
+
+* Users are logged in and can access their resources.
+
+## Alternate Sequences
+* None.
+
+# Delete account
+
+Deletes the user’s account.
+
+## Actors
+
+* User
+
+## Preconditions
+
+* User’s account should be logged in.
+
+## Triggers
+
+* Click the delete button in the settings menu.
+
+## Primary Sequence
+
+1. Users navigate to the settings page.
+2. Users click on the delete account button.
+3. Website prompts confirmation for the account to be deleted.
+4. User clicks “yes” on the confirmation pop-up.
+5. Log the user out of the account and delete their credentials.
+
+## Primary Postconditions
+
+* Users are logged in.
+
+## Alternate Sequences
+
+1. User clicks “no” on the pop-up.
+2. Account is not deleted and will back out of the pop-up.
 
 
 # NotesToPDF
