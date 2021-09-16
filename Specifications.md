@@ -13,7 +13,7 @@
 
 **Problem Statement:** App that provides learning tools for students to study.
 
-**Non-functional Requirements:** The website has to be in the English language.
+**Non-functional Requirements:** The website has to be in the English language, FindTextInFiles should process not slower than 2 seconds, notes should render in the form of flashcard
 
 
 
