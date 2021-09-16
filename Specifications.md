@@ -85,11 +85,14 @@ Click Log-in button
 
 ## Alternate Sequences
 1. User inputted an invalid username or password.
+
 2. Prompt the user to enter the username and password again.
 
-# Log-out
+   
 
-Logs a user out of their account.
+# Input markdown file and output flash cards:
+
+User import data to the app from markdown file and output flashcards.
 
 ## Actors
 
@@ -101,18 +104,23 @@ Logs a user out of their account.
 
 ## Triggers
 
-* Click Log-out button
+* User clicks “Create flash cards” button
 
 ## Primary Sequence
 
 1. Users click the log-out button when they are logged in.
+2. User clicks“input your data” button
+3. User clicks“Create” button
 
 ## Primary Postconditions
 
-* Users are logged in and can access their resources.
+* Text editor in markdown format opens up.
+* Flash cards have been created.
 
 ## Alternate Sequences
-* None.
+* File cannot be empty so flash cards will not be created.
+
+  
 
 # Delete account
 
@@ -146,6 +154,34 @@ Deletes the user’s account.
 
 1. User clicks “no” on the pop-up.
 2. Account is not deleted and will back out of the pop-up.
+
+# Log-out
+
+Logs a user out of their account.
+
+## Actors
+
+1. User
+
+## Preconditions
+
+* User’s account should be logged in.
+
+## Triggers
+
+* Click Log-out button
+
+## Primary Sequence
+
+1. Users click the log-out button when they are logged in.
+
+## Primary Postconditions
+
+* Users are logged in and can access their resources.
+
+## Alternate Sequences
+
+* None.
 
 
 # NotesToPDF
@@ -300,6 +336,110 @@ Create time block for note when to study them
 ### Alternative Trigger
 
 ### Alternative Postconditions
+
+
+
+# Use pomodoro timer
+
+User creates pomodoro timer .
+
+## Actors
+
+1. User
+
+## Preconditions
+
+* User’s account should be logged in.
+
+## Triggers
+
+* User click “Pomodoro Timer” button
+
+## Primary Sequence
+
+1. User input minutes for Pomodoro length, short break length, long break length.
+2. User clicks “Set” button
+3. User clicks “Start” button to use
+4. User clicks "Stop" button to stop using
+
+## Primary Postconditions
+
+* Pomodoro Timer has started.
+* Pomodoro Timer has stopped.
+
+## Alternate Sequences
+
+* Error message displayed: “Need to set time”.
+
+
+
+
+
+# Add note to to-do list
+
+User adds note to to-do list.
+
+## Actors
+
+1. User
+
+## Preconditions
+
+* User is logged in and has created notes.
+
+## Triggers
+
+* User clicks “add to to-do list” button.
+
+## Primary Sequence
+
+1. User selects notes to add to-do list.
+2. User clicks “Save” button
+
+## Primary Postconditions
+
+* Notes have been added to to-do list.
+
+## Alternate Sequences
+
+* Notes were not selected.
+
+
+
+# Check off to-do item
+
+User marks an item on to-do list to show that it has been dealt with..
+
+## Actors
+
+1. User
+
+## Preconditions
+
+* User is logged in and have items on to-do list.
+
+## Triggers
+
+* User clicks “to-do list” button
+
+## Primary Sequence
+
+1. The user marks each note or item as completed.
+2. User clicks “Save” button
+
+## Primary Postconditions
+
+* To-do list is updated.
+
+## Alternate Sequences
+
+* None.
+
+
+
+
+
+
 
 
 
