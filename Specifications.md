@@ -58,6 +58,9 @@ Create a new user account
 * Highlight password or username input box with red and tell that input is invalid
 * Highlight username input box and tell that username is already in use
 
+
+
+
 # Log-in:
 
 Logs a user into their account.
@@ -90,6 +93,7 @@ Click Log-in button
 
    
 
+
 # Input markdown file and output flash cards:
 
 User import data to the app from markdown file and output flashcards.
@@ -119,6 +123,7 @@ User import data to the app from markdown file and output flashcards.
 
 ## Alternate Sequences
 * File cannot be empty so flash cards will not be created.
+
 
   
 
@@ -155,6 +160,10 @@ Deletes the user’s account.
 1. User clicks “no” on the pop-up.
 2. Account is not deleted and will back out of the pop-up.
 
+
+
+
+
 # Log-out
 
 Logs a user out of their account.
@@ -182,6 +191,8 @@ Logs a user out of their account.
 ## Alternate Sequences
 
 * None.
+
+
 
 
 # NotesToPDF
@@ -223,6 +234,7 @@ Convert notes into pdf and download them
 
 
 
+
 # NavigateBetweenNotes:
 
 Ability, similar to hyperlinks, to navigate between notes using this syntax [[other note]]
@@ -260,6 +272,7 @@ Ability, similar to hyperlinks, to navigate between notes using this syntax [[ot
 * Throw error 404, the other note was not found
 
   
+
 
 # FindTextInFiles
 
@@ -303,6 +316,7 @@ Search text and list notes that have that text in them.
 
 
 
+
 # CreateTimeBlock
 
 Create time block for note when to study them
@@ -336,6 +350,7 @@ Create time block for note when to study them
 ### Alternative Trigger
 
 ### Alternative Postconditions
+
 
 
 
@@ -406,6 +421,7 @@ User adds note to to-do list.
 
 
 
+
 # Check off to-do item
 
 User marks an item on to-do list to show that it has been dealt with..
@@ -434,11 +450,6 @@ User marks an item on to-do list to show that it has been dealt with..
 ## Alternate Sequences
 
 * None.
-
-
-
-
-
 
 
 
@@ -478,6 +489,7 @@ Tracks how many hours user was studying
 
 
 
+
 # RenderWorkHoursPerDay
 
 Render work hours per day
@@ -507,3 +519,134 @@ Render work hours per day
 ### Alternative Trigger
 
 ### Alternative Postconditions
+
+
+
+
+# Render markdown notes
+## Summary
+ 
+The user converts markdown notes into text with features (title bold, italics, etc).
+ 
+## Actors
+User
+Markdown notes
+ 
+## Preconditions
+* User is logged in and has created notes in markdown format
+ 
+## Triggers
+User selects “render markdown notes” button
+ 
+## Primary Sequence
+User selects notes to render
+User clicks “render markdown notes” button
+
+## Primary Postconditions
+* Markdown notes are rendered
+ 
+## Alternate Sequences
+* Notes were not selected so render doesn’t start
+ 
+ 
+ 
+
+# Share notes with other people
+## Summary
+The user shares notes with other users.
+ 
+## Actors
+User that shares notes
+User that receives notes
+Markdown notes
+ 
+## Preconditions
+* User is logged in and has created notes in markdown format
+ 
+## Triggers
+User selects “share notes” button
+ 
+## Primary Sequence
+User selects notes to share
+User clicks “share notes” button
+User inputs username of other users that they want to share the notes with
+User clicks “share” button
+
+## Primary Postconditions
+* Notes are being shared
+ 
+## Alternate Sequences
+* Notes were not selected and aren’t shared
+*No username was inputted
+*Error message displayed: “information missing”
+ 
+
+
+
+# Add new note
+## Summary
+User creates a note.
+ 
+## Actors
+User
+ 
+## Preconditions
+* User is logged in
+ 
+## Triggers
+User selects “create note” button
+ 
+## Primary Sequence
+User selects “create note” button
+
+## Primary Postconditions
+* Text editor in markdown format opens up
+
+
+
+
+# Edit note
+## Summary
+User edits a note.
+ 
+## Actors
+User
+ 
+## Preconditions
+* User is logged in
+*At least 1 note exists
+ 
+## Triggers
+User selects “edit note” button
+ 
+## Primary Sequence
+User opens up the desired note
+User selects “edit note” button
+
+## Primary Postconditions
+* Text editor in markdown format opens up
+ 
+
+
+
+# Delete note
+## Summary
+User deletes a note.
+ 
+## Actors
+User
+ 
+## Preconditions
+* User is logged in
+*At least 1 note exists
+ 
+## Triggers
+User selects “delete note” button
+ 
+## Primary Sequence
+User opens up the desired note
+User selects “delete note” button
+
+## Primary Postconditions
+*Deleted file no longer appears in list
+
