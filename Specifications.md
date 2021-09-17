@@ -61,7 +61,7 @@ Create a new user account
 
 
 
-# Log-in:
+# Sign-in:
 
 Logs a user into their account.
 
@@ -92,7 +92,33 @@ Click Log-in button
 2. Prompt the user to enter the username and password again.
 
    
+# Sign-out
 
+Logs a user out of their account.
+
+## Actors
+
+1. User
+
+## Preconditions
+
+* User’s account should be logged in.
+
+## Triggers
+
+* Click Log-out button
+
+## Primary Sequence
+
+1. Users click the log-out button when they are logged in.
+
+## Primary Postconditions
+
+* Users are logged in and can access their resources.
+
+## Alternate Sequences
+
+* None.
 
 # Input markdown file and output flash cards:
 
@@ -163,38 +189,6 @@ Deletes the user’s account.
 
 
 
-
-# Log-out
-
-Logs a user out of their account.
-
-## Actors
-
-1. User
-
-## Preconditions
-
-* User’s account should be logged in.
-
-## Triggers
-
-* Click Log-out button
-
-## Primary Sequence
-
-1. Users click the log-out button when they are logged in.
-
-## Primary Postconditions
-
-* Users are logged in and can access their resources.
-
-## Alternate Sequences
-
-* None.
-
-
-
-
 # NotesToPDF
 
 Convert notes into pdf and download them
@@ -235,7 +229,7 @@ Convert notes into pdf and download them
 
 
 
-# NavigateBetweenNotes:
+# NavigateBetweenNotes
 
 Ability, similar to hyperlinks, to navigate between notes using this syntax [[other note]]
 
@@ -338,7 +332,7 @@ Create time block for note when to study them
 ## Primary Sequence
 
 1. User clicks Edit Note
-2. User inputs time block start and end dates/times using date/time picker
+2. User inputs time block start and end dates/times using custom syntaxis
 3. User clicks Save button
 
 ## Primary Postconditions
