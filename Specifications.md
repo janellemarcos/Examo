@@ -638,7 +638,7 @@ User
  
 ## Preconditions
 * User is logged in
-*At least 1 note exists
+* At least 1 note exists
  
 ## Triggers
 User selects “delete note” button
