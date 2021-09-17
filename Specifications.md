@@ -13,7 +13,7 @@
 
 **Problem Statement:** App that provides learning tools for students to study.
 
-**Non-functional Requirements:** The website has to be in the English language, FindTextInFiles should process not slower than 2 seconds, notes should render in the form of flashcard
+**Non-functional Requirements:** The website has to be in the English language, FindTextInFiles should process not slower than 2 seconds, notes should render in the form of flashcard, use bootstrap for frontend
 
 
 
@@ -571,10 +571,32 @@ User clicks “share” button
  
 ## Alternate Sequences
 * Notes were not selected and aren’t shared
-*No username was inputted
-*Error message displayed: “information missing”
+* No username was inputted
+* Error message displayed: “information missing”
  
+# MindMap
+## Summary
+Generates mind map from notes that have hyperlinks to other notes and are connected
+ 
+## Actors
+* Notes
+ 
+## Preconditions
+* User is logged in
+* One or more notes are created
+ 
+## Triggers
+* User Clicks "Show Mind Map" button
+ 
+## Primary Sequence
+1. User logs in
+2. User clicks "Show Mind Map" button
 
+## Primary Postconditions
+* Mind map is generated from existing notes
+ 
+## Alternate Sequences
+* There are no notes so the mind map will not be generated
 
 
 # Add new note
