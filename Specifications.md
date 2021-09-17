@@ -666,3 +666,25 @@ User selects “delete note” button
 ## Primary Postconditions
 * Deleted file no longer appears in list
 
+
+# Change order of notes
+## Summary
+Depending from correct answer change order of notes. The ones that user gets correct answer goes to the back.
+ 
+## Actors
+* User
+* Notes
+ 
+## Preconditions
+* User is logged in
+* At least 1 note exists
+ 
+## Triggers
+* User clicks button "Correct" in case of correct answer, otherwise he clicks "Incorrect"
+ 
+## Primary Sequence
+1. User opens the note
+2. User selects "Correct" or "Incorrect"
+
+## Primary Postconditions
+* Order of note has been changed
