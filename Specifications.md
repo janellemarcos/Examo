@@ -648,5 +648,5 @@ User opens up the desired note
 User selects “delete note” button
 
 ## Primary Postconditions
-*Deleted file no longer appears in list
+* Deleted file no longer appears in list
 
