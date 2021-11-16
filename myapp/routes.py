@@ -3,7 +3,7 @@ from myapp.forms import LoginForm
 from flask import render_template, flash, redirect
 
 from myapp import db
-from myapp.models import User, Post
+from myapp.models import User
 from flask_login import current_user, login_user, logout_user, login_required
 
 @myapp_obj.route("/loggedin")
@@ -16,8 +16,24 @@ def logout():
     logout_user()
     return redirect('/')
 
+@myapp_obj.route("/register", methods=['GET', 'POST'])
+def register():
+    db.create_all()
+    usernames = User.query.all()
+    form = LoginForm()
+    if form.validate_on_submit():
+        if form.username.data is None or form.password.data is None:
+            return redirect('/')
+        p = User(username=form.username.data, password=form.password.data)
+        db.session.add(p)
+        db.session.commit()
+        return redirect('/')
+    return render_template('register.html', form=form)
+
+
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
+    # will replace flash with something else later on
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -25,10 +41,11 @@ def login():
             flash('Login invalid username or password!')
             return redirect('/login')
         login_user(user, remember=form.remember_me.data)
-        flash(f'Login requested for user {form.username.data},remember_me={form.remember_me.data}')
+        flash(f'Login requested for user {form.username.data}')
         flash(f'Login password {form.password.data}')
         return redirect('/')
     return render_template("login.html", form=form)
+
 
 @myapp_obj.route("/members/<string:name>/")
 def getMember(name):
