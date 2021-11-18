@@ -6,13 +6,17 @@ from myapp import db
 from myapp.models import User
 from flask_login import current_user, login_user, logout_user, login_required
 
-@myapp_obj.route("/loggedin")
+@myapp_obj.route("/delete")
 @login_required
-def log():
-    return 'Hi you are logged in'
+def delete():
+    #get logged in user data (could be id, username) 
+    #save user to variable u
+    #call u.query.filter_by(id).delete()
+    #Ref: https://flask-login.readthedocs.io/en/latest/
 
 @myapp_obj.route("/logout")
 def logout():
+    #no change here, can just call logout
     logout_user()
     return redirect('/')
 
