@@ -5,6 +5,11 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from myapp import login
 
+class Note(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(64), index=True)
+    description = db.Column(db.String(500))
+    content = db.Column(db.String(5000))
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <p>{{note.title}}</p>
+    <p>{{note.description}}</p>
+    <p>{{note.content}}</p>
+    <div>
+        <a href="{{ '/edit-note/%s'%note.id }}">Edit</a>
+        <a href="{{ '/delete-note/%s'%note.id }}">Delete</a>
+    </div>
+{% endblock %}
