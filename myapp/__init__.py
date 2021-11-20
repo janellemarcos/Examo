@@ -14,8 +14,9 @@ myapp_obj.config.from_mapping(
 )
 
 db = SQLAlchemy(myapp_obj)
+# db.create_all()
 
 login = LoginManager(myapp_obj)
 login.login_view = 'login'
 
-from myapp import routes, models
+from myapp import routes, routesUser, models
