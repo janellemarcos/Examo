@@ -11,7 +11,14 @@
         <div>
             <p>My Website:</p>
             <a href="/">Home</a>
+	    {% if not authorized %}
             <a href="/login">Login</a>
+	    <a href="/register">Register</a>
+            {% endif %}
+            {% if authorized %}
+            <a href="/logout">Logout</a>
+	    <a href="/delete">Delete Account</a>
+            {% endif %}
         </div>
         {% with messages = get_flashed_messages() %}
         {% if messages %}

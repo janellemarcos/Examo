@@ -38,12 +38,13 @@ def register():
             p.set_password(password=form.password.data)
             db.session.add(p)
             db.session.commit()
+            login_user(p, remember=False)
             return redirect('/')
         except IntegrityError:
             flash('Username exists')
             return redirect('register')
 
-    return render_template('register.html', form=form)
+    return render_template('register.html', form=form, authorized=current_user.is_authenticated)
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
@@ -60,4 +61,4 @@ def login():
         flash(f'Login requested for user {form.username.data}')
         flash(f'Login password {form.password.data}')
         return redirect('/')
-    return render_template("login.html", form=form)
+    return render_template("login.html", form=form, authorized=current_user.is_authenticated)
