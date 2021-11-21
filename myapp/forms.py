@@ -12,7 +12,11 @@ class NoteForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
     description = StringField('description')
     content = TextAreaField('content')
-    submit = SubmitField('Add Note')
+    submit = SubmitField('Save')
+
+class ShareForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    submit = SubmitField('Save')
 
 class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])

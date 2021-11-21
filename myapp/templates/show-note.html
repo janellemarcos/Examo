@@ -5,6 +5,7 @@
     <p>{{note.content}}</p>
     <div>
         <a href="{{ '/edit-note/%s'%note.id }}">Edit</a>
+        <a href="{{ '/share-note/%s'%note.id }}">Share</a>
         <a href="{{ '/delete-note/%s'%note.id }}">Delete</a>
     </div>
 {% endblock %}
