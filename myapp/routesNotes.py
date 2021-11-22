@@ -23,7 +23,7 @@ def add_note():
         db.session.add(current_user)
         db.session.commit()
         flash('The note is added')
-        return redirect('/')
+        return redirect('/list-note')
 
     return render_template('add-note.html', form=form, authorized=current_user.is_authenticated)
 
@@ -50,6 +50,8 @@ def show_note(id):
     if note == None:
         return redirect('/list-note')
 
+    #Without line below the markdown renderer stops working
+    note.content = '\n'+note.content
     return render_template('show-note.html', note=note, authorized=current_user.is_authenticated)
 
 @myapp_obj.route('/edit-note/<id>', methods=['GET','POST'])

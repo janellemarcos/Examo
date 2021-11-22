@@ -16,7 +16,7 @@ class NoteForm(FlaskForm):
 
 class ShareForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
-    submit = SubmitField('Save')
+    submit = SubmitField('Share')
 
 class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])

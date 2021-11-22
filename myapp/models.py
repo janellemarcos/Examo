@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from flask_login import UserMixin
 from myapp import login
+from datetime import datetime, timedelta
 
 #One to many relationship between User and Note
 UserNote = db.Table('UserNote',
@@ -24,6 +25,8 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), unique=True, index=True)
     password  = db.Column(db.String(128))
+    online = db.Column(db.DateTime, default=datetime(1,1,1,0,0))
+    lastOnline = db.Column(db.DateTime, default=datetime.utcnow())
     notes = db.relationship('Note', secondary=UserNote, backref='Author')
 
     def set_password(self, password):

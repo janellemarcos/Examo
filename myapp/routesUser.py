@@ -6,6 +6,7 @@ from myapp import db
 from sqlalchemy.exc import IntegrityError
 from myapp.models import User
 from flask_login import current_user, login_user, logout_user, login_required
+from datetime import datetime, timedelta
 
 @myapp_obj.route("/delete")
 @login_required
@@ -19,6 +20,8 @@ def delete():
 
 @myapp_obj.route("/logout")
 def logout():
+    current_user.online = current_user.online + (datetime.utcnow() - current_user.lastOnline)
+    db.session.commit()
     logout_user()
     return redirect('/')
 
@@ -36,6 +39,7 @@ def register():
         try:
             p = User(username=form.username.data)
             p.set_password(password=form.password.data)
+            p.lastOnline = datetime.utcnow()
             db.session.add(p)
             db.session.commit()
             login_user(p, remember=False)
@@ -60,5 +64,11 @@ def login():
         login_user(user, remember=form.remember_me.data)
         flash(f'Login requested for user {form.username.data}')
         flash(f'Login password {form.password.data}')
+
+        #Check if 24 hours passed and reset online timer
+        if(datetime.utcnow() - current_user.lastOnline) > timedelta(1):
+            current_user.online = datetime(1,1,1,0,0)
+        current_user.lastOnline = datetime.utcnow()
+        db.session.commit()
         return redirect('/')
     return render_template("login.html", form=form, authorized=current_user.is_authenticated)
