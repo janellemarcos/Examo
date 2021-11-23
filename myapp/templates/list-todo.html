@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<ul>
+     <ul>
+    {% for note in list_todo%}
+    	<li>{{ note.title }}</li>
+    {% endfor %}
+    </ul>
+</ul>
+{% endblock %}
