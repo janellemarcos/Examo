@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-    <p>{{note.title}}</p>
-    <p>{{note.description}}</p>
-    <p>{{note.content}}</p>
+    <p>Title: {{note.title}}</p>
+    <p>Description: {{note.description}}</p>
+    Content<hr>
+    {% filter markdown %}
+        {{note.content}}
+    {% endfilter %}
     <div>
         <a href="{{ '/edit-note/%s'%note.id }}">Edit</a>
+        <a href="{{ '/share-note/%s'%note.id }}">Share</a>
         <a href="{{ '/delete-note/%s'%note.id }}">Delete</a>
     </div>
 {% endblock %}
