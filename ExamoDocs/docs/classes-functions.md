@@ -29,19 +29,19 @@ This page lists the name of each class/function in each file.
 
 ## routesNotes.py
 
-- def list_note
-- def add_note
-- def share_note
-- def show_note
-- def edit_note
-- def delete_note
+- [def list_note](list_note.md)
+- [def add_note](add_note.md)
+- [def share_note](share_note.md)
+- [def show_note](show_note.md)
+- [def edit_note](edit_note.md)
+- [def delete_note](delete_note.md)
 
 
 
 ## routesUser.py
 
-- def delete
-- def logout
-- def register
-- def login
+- [def delete](delete.md)
+- [def logout](logout.md)
+- [def register](register.md)
+- [def login](login.md)
 
