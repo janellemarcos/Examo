@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <ul>
-     <ul>
     {% for note in list_todo%}
-    	<li>{{ note.title }}</li>
+    <li>
+    	<a href="{{ '/show-note/%s'%note.id }}"> {{ note.title }}</a>
+    </li>
     {% endfor %}
-    </ul>
 </ul>
 {% endblock %}
