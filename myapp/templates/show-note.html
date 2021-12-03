@@ -9,6 +9,11 @@
     <div>
         <a href="{{ '/edit-note/%s'%note.id }}">Edit</a>
         <a href="{{ '/share-note/%s'%note.id }}">Share</a>
+        {% if note.is_in_todo == False %}
+            <a href="{{ '/add-todo/%s'%note.id }}">Add to To Do List</a>
+        {% elif note.is_in_todo == True %}
+            <a href="{{ '/remove-todo/%s'%note.id }}">Remove From To Do List</a>
+        {% endif %}
         <a href="{{ '/delete-note/%s'%note.id }}">Delete</a>
     </div>
 {% endblock %}

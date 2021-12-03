@@ -18,6 +18,7 @@ def add_note():
     form = NoteForm()
     if form.validate_on_submit():
         note = Note(title=form.title.data, description=form.description.data, content=form.content.data)
+        note.is_in_todo = False
         current_user.notes.append(note)
         db.session.add(note)
         db.session.add(current_user)
@@ -85,3 +86,34 @@ def delete_note(id):
     note.users.remove(current_user)
     db.session.commit()
     return redirect('/list-note')
+
+
+@myapp_obj.route('/list-todo', methods=['GET'])
+@login_required
+def list_todo():
+    user_notes = current_user.notes
+    todo = []
+    for n in user_notes:
+        if n.is_in_todo == True:
+            todo.append(n)
+    return render_template('list-todo.html', list_todo=todo, authorized=current_user.is_authenticated)
+
+@myapp_obj.route('/add-todo/<id>', methods=['GET','POST'])
+@login_required
+def add_todo(id):
+    note = Note.query.join(Note.users).filter(User.id==current_user.id, Note.id==id).first()
+    if note == None:
+        return redirect('list-note')
+    note.is_in_todo = True
+    db.session.commit()
+    return redirect('/list-todo')
+
+@myapp_obj.route('/remove-todo/<id>', methods=['GET','POST'])
+@login_required
+def remove_todo(id):
+    note = Note.query.join(Note.users).filter(User.id==current_user.id, Note.id==id).first()
+    if note == None:
+        return redirect('list-note')
+    note.is_in_todo = False
+    db.session.commit()
+    return redirect('/list-todo')

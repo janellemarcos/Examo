@@ -18,6 +18,7 @@ class Note(db.Model):
     title = db.Column(db.String(64), index=True)
     description = db.Column(db.String(500))
     content = db.Column(db.String(5000))
+    is_in_todo = db.Column(db.Boolean)
     users = db.relationship('User', secondary=UserNote, backref='Note')
 
 class User(UserMixin, db.Model):
