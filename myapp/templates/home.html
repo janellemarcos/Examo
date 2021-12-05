@@ -1,8 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if not authorized %}
+	<div class="jumbotron">
+        <h1 class="display-4">Examo</h1>
+        <p class="lead">Helping students prepare for their exams.</p>
+        <hr class="my-4">
+        <p>An online flashcard web application that helps keep track of your notes and tasks to complete.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+	</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="Flashcard">
+                        <a href="flashcards.jpg">
+                            <img src="/static/homePage.png" alt="flashcards" style="width:50%">
+                            <div class="caption">
+                                <p>Flashcards</p>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                        One of three columns
+                </div>
+                <div class="col-sm">
+                        One of three columns
+                </div>
+            </div>
+        </div>
+{%endif%}
 {% if authorized %}
 	<h1>Welcome {{ name }}!</h1>
-        You have been working for {{ workMinutes }} minutes
+        You have been working for {{ workMinutes }} minutes <br>
+    <a class="btn btn-primary btn-sm" href="/list-note" role="button">Show Notes</a>
 {% endif %}
 {% endblock %}

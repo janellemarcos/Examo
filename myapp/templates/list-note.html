@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<link rel="notesheet" href="notes.css">
 <ul>
     {% for note in list_note %}
     <li>
@@ -8,7 +9,7 @@
     {% endfor %}
 </ul>
 <div>
-    <a href="/add-note">Add Note</a>
-    <a href="/list-todo">To Do List</a>
+    <a class="btn btn-primary btn-sm" href="/add-note" role="button">Add a Note</a>
+    <a class="btn btn-primary btn-sm" href="/list-todo role="button">TODO List</a>
 </div>
 {% endblock %}
