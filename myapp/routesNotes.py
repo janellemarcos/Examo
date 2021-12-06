@@ -9,8 +9,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 @myapp_obj.route('/list-note', methods=['GET'])
 @myapp_obj.route('/list-note/<sort_option>', methods=['GET'])
 @login_required
-def list_note(sort_option):
-    sort_option=None
+def list_note(sort_option=None):
     list_note = current_user.notes
     sorted_notes = list_note
     if sort_option == 'ascending':
