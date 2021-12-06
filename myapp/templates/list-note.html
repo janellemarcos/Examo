@@ -7,6 +7,10 @@
         <a class="btn btn-lg btn-secondary btn-block" href="/list-todo" role="button">To-Do List</a>
     </div>
 </div>
+<a href="{{ url_for('list_note', sort_option='ascending') }}">Ascending</a>
+<a href="{{ url_for('list_note', sort_option='descending') }}">Descending</a>
+<a href="{{ url_for('list_note', sort_option='newest') }}">Newest</a>
+
 <div class="container p-3 row  mx-auto">
     {% for note in list_note %}
     <ul class="list-group m-3">

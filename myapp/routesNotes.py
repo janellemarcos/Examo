@@ -7,10 +7,19 @@ from myapp.models import User, Note, UserNote
 from flask_login import current_user, login_user, logout_user, login_required
 
 @myapp_obj.route('/list-note', methods=['GET'])
+@myapp_obj.route('/list-note/<sort_option>', methods=['GET'])
 @login_required
-def list_note():
+def list_note(sort_option):
+    sort_option=None
     list_note = current_user.notes
-    return render_template('list-note.html', list_note=list_note, authorized=current_user.is_authenticated)
+    sorted_notes = list_note
+    if sort_option == 'ascending':
+        sorted_notes = sorted(list_note, key=lambda d: d.title)
+    elif sort_option =='descending':
+        sorted_notes = sorted(list_note, key=lambda d: d.title, reverse=True)
+    elif sort_option == 'newest':
+        sorted_notes = sorted(list_note, key=lambda d: d.date, reverse=True)
+    return render_template('list-note.html', list_note=sorted_notes, authorized=current_user.is_authenticated)
 
 @myapp_obj.route('/add-note', methods=['GET','POST'])
 @login_required
@@ -120,3 +129,7 @@ def remove_todo(id):
     note.is_in_todo = False
     db.session.commit()
     return redirect('/show-note/' + id)
+
+
+
+
