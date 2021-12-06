@@ -19,6 +19,7 @@ class Note(db.Model):
     description = db.Column(db.String(500))
     content = db.Column(db.String(5000))
     is_in_todo = db.Column(db.Boolean)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
     users = db.relationship('User', secondary=UserNote, backref='Note')
 
 class User(UserMixin, db.Model):
