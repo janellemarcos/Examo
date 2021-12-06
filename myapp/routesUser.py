@@ -62,8 +62,6 @@ def login():
             return redirect('/login')
 
         login_user(user, remember=form.remember_me.data)
-        flash(f'Login requested for user {form.username.data}')
-        flash(f'Login password {form.password.data}')
 
         #Check if 24 hours passed and reset online timer
         if(datetime.utcnow() - current_user.lastOnline) > timedelta(1):

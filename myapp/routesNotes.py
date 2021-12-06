@@ -23,7 +23,6 @@ def add_note():
         db.session.add(note)
         db.session.add(current_user)
         db.session.commit()
-        flash('The note is added')
         return redirect('/list-note')
 
     return render_template('add-note.html', form=form, authorized=current_user.is_authenticated)
@@ -37,6 +36,10 @@ def share_note(id):
         if note == None:
             return redirect('/list-note')
         user = User.query.filter_by(username = form.username.data).first()
+        if user == None:
+            flash('User does not exist')
+            return redirect('/share-note/' + id)
+
         user.notes.append(note)
         db.session.commit()
         flash('The note has been shared')
@@ -106,7 +109,7 @@ def add_todo(id):
         return redirect('list-note')
     note.is_in_todo = True
     db.session.commit()
-    return redirect('/list-todo')
+    return redirect('/show-note/' + id)
 
 @myapp_obj.route('/remove-todo/<id>', methods=['GET','POST'])
 @login_required
@@ -116,4 +119,4 @@ def remove_todo(id):
         return redirect('list-note')
     note.is_in_todo = False
     db.session.commit()
-    return redirect('/list-todo')
+    return redirect('/show-note/' + id)

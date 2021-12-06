@@ -3,11 +3,13 @@
 {% block content %}
 {% if not authorized %}
 	<div class="jumbotron">
-        <h1 class="display-4">Examo</h1>
-        <p class="lead">Helping students prepare for their exams.</p>
-        <hr class="my-4">
-        <p>An online flashcard web application that helps keep track of your notes and tasks to complete.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <div class="container">
+            <h1 class="display-4">Examo</h1>
+            <p class="lead">Helping students prepare for their exams.</p>
+            <hr class="my-4">
+            <p>An online flashcard web application that helps keep track of your notes and tasks to complete.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
 	</div>
         <div class="container">
             <div class="row">
@@ -30,8 +32,15 @@
         </div>
 {%endif%}
 {% if authorized %}
-	<h1>Welcome {{ name }}!</h1>
-        You have been working for {{ workMinutes }} minutes <br>
-    <a class="btn btn-primary btn-sm" href="/list-note" role="button">Show Notes</a>
+<div class="jumbotron">
+    <div class="container">
+        <h1>Welcome {{ name }}!</h1>
+        <h5>You have been working for {{ workMinutes }} minutes</h5>
+    </div>
+</div>
+<div class="container">
+    <a class="btn btn-secondary btn-lg btn-block" href="/list-note" role="button">Notes</a>
+    <a class="btn btn-lg btn-secondary btn-block" href="/list-todo" role="button">To-Do List</a>
+</div>
 {% endif %}
 {% endblock %}

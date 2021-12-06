@@ -1,20 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Register User</h1>
-
 <form method="POST" novalidate>
-    {{ form.hidden_tag() }}
+    <div class="jumbotron">
+        <div class="container">
+            <form method="POST" novalidate>
+                {{ form.hidden_tag() }}
+                <h1>Register User</h1>
 
-    <p> {{ form.username.label }} <br>
-    {{ form.username(size=32) }}</p>
+                <div class="form-group">
+                    <label>{{ form.username.label }}</label>
+                    {{ form.username(class="form-control", size=32) }}
+                </div>
 
-    <p> {{ form.password.label }} <br>
-    {{ form.password(size=32) }}</p>
+                <div class="form-group">
+                    <label>{{ form.password.label }}</label>
+                    {{ form.password(class="form-control", size=32) }}
+                </div>
 
-    <p> {{ form.repeatPassword.label }} <br>
-    {{ form.repeatPassword(size=32) }}</p>
+                <div class="form-group">
+                    <label>{{ form.repeatPassword.label }}</label>
+                    {{ form.repeatPassword(class="form-control", size=32) }}
+                </div>
 
-    <p>{{ form.submit() }}</p>
+                {{ form.submit(class="btn btn-secondary") }}
+            </form>
+        </div>
+    </div>
 </form>
 {% endblock %}

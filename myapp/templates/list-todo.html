@@ -1,10 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
-<ul>
-    {% for note in list_todo%}
-    <li>
-    	<a href="{{ '/show-note/%s'%note.id }}"> {{ note.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>To-Do List</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="list-group">
+        {% for note in list_todo%}
+        <a href="{{ '/show-note/%s'%note.id }}" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ note.title }}</h5>
+                <small class="text-muted">Order 3</small>
+            </div>
+            <p class="mb-1">{{ note.title }}</p>
+        </a>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

@@ -9,9 +9,9 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign in')
 
 class NoteForm(FlaskForm):
-    title = StringField('title', validators=[DataRequired()])
-    description = StringField('description')
-    content = TextAreaField('content')
+    title = StringField('Title', validators=[DataRequired()])
+    description = StringField('Description')
+    content = TextAreaField('Content')
     submit = SubmitField('Save')
 
 class ShareForm(FlaskForm):

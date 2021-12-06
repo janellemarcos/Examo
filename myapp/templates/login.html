@@ -1,20 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Sign in</h1>
+<div class="jumbotron">
+    <div class="container">
+        <form method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <h1>Sign in</h1>
 
-<form method="POST" novalidate>
-    {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label>{{ form.username.label }}</label>
+                {{ form.username(class="form-control", size=32) }}
+            </div>
 
-    <p> {{ form.username.label }} <br>
-    {{ form.username(size=32) }}</p>
+            <div class="form-group">
+                <label>{{ form.password.label }}</label>
+                {{ form.password(class="form-control", size=32) }}
+            </div>
 
-    <p> {{ form.password.label }} <br>
-    {{ form.password(size=32) }}</p>
-
-    <p> {{ form.remember_me.label }} <br>
-    {{ form.remember_me() }}</p>
-
-    <p>{{ form.submit() }}</p>
-</form>
+            {{ form.remember_me(class="form-check-label") }}
+            <label>{{ form.remember_me.label }}</label><br/>
+            {{ form.submit(class="btn btn-secondary") }}
+        </form>
+    </div>
+</div>
 {% endblock %}
