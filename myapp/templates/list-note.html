@@ -1,14 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<ul>
+<link rel="notesheet" href="notes.css">
+<div class="jumbotron">
+    <div class="container">
+        <a class="btn btn-lg btn-secondary btn-block" href="/add-note" role="button">Add a Note</a>
+        <a class="btn btn-lg btn-secondary btn-block" href="/list-todo" role="button">To-Do List</a>
+    </div>
+</div>
+<div class="container p-3 row  mx-auto">
     {% for note in list_note %}
-    <li>
-        <a href="{{ '/show-note/%s'%note.id }}"> {{ note.title }}</a>
-    </li>
+    <ul class="list-group m-3">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 15rem;">
+            <div class="card-body">
+                <div class="card-block">
+                    <h5 class="card-title" text="Title"><div>{{ note.title }}</div></h5>
+                    <hr />
+                    <div>{{ note.description }}</div><br />
+                    <a href="{{'/show-note/%s'%note.id }}" class="btn btn-secondary btn-block">View</a>
+                </div>
+            </div>
+        </div>
+    </ul>
     {% endfor %}
-</ul>
-<div>
-    <a href="/add-note">Add Note</a>
-    <a href="/list-todo">To Do List</a>
 </div>
 {% endblock %}

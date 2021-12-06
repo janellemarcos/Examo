@@ -1,14 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Share Note</h1>
+<div class="jumbotron">
+    <div class="container">
+        <form method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <h1>Share Note</h1>
 
-<form method="POST" novalidate>
-    {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label>{{ form.username.label }}</label>
+                {{ form.username(class="form-control", size=32) }}
+            </div>
 
-    <p> {{ form.username.label }} <br>
-    {{ form.username(size=32) }}</p>
-
-    <p>{{ form.submit() }}</p>
-</form>
+            {{ form.submit(class="btn btn-secondary") }}
+        </form>
+    </div>
+</div>
 {% endblock %}
