@@ -7,17 +7,27 @@
         <a class="btn btn-lg btn-secondary btn-block" href="/list-todo" role="button">To-Do List</a>
     </div>
 </div>
-<a href="{{ url_for('list_note', sort_option='ascending') }}">Ascending</a>
-<a href="{{ url_for('list_note', sort_option='descending') }}">Descending</a>
-<a href="{{ url_for('list_note', sort_option='newest') }}">Newest</a>
-
+<div class="container" style="text-align:right">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Sort by
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="{{ url_for('list_note', sort_option='ascending') }}" style="color:black">A-Z</a>
+        <a class="dropdown-item" href="{{ url_for('list_note', sort_option='descending') }}" style="color:black">Z-A</a>
+        <a class="dropdown-item" href="{{ url_for('list_note', sort_option='newest') }}" style="color:black">Newest</a>
+        </li>
+    </div>
+</div>
 <div class="container p-3 row  mx-auto">
     {% for note in list_note %}
     <ul class="list-group m-3">
         <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 15rem;">
             <div class="card-body">
                 <div class="card-block">
-                    <h5 class="card-title" text="Title"><div>{{ note.title }}</div></h5>
+                    <h5 class="card-title" text="Title">
+                        <div>{{ note.title }}</div>
+                    </h5>
                     <hr />
                     <div>{{ note.description }}</div><br />
                     <a href="{{'/show-note/%s'%note.id }}" class="btn btn-secondary btn-block">View</a>
